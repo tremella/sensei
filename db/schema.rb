@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_13_140003) do
+ActiveRecord::Schema.define(version: 2021_09_13_143745) do
 
   create_table "slots", force: :cascade do |t|
     t.datetime "start"
