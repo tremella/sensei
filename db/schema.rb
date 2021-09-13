@@ -10,9 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_13_132749) do
+ActiveRecord::Schema.define(version: 2021_09_13_140003) do
+
+  create_table "slots", force: :cascade do |t|
+    t.datetime "start"
+    t.datetime "end"
+    t.boolean "is_booked"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "coach_id"
+    t.integer "student_id"
+    t.index ["coach_id"], name: "index_slots_on_coach_id"
+    t.index ["student_id"], name: "index_slots_on_student_id"
+  end
 
 # Could not dump table "users" because of following StandardError
 #   Unknown type 'bool' for column 'is_coach'
 
+  add_foreign_key "slots", "users", column: "coach_id"
+  add_foreign_key "slots", "users", column: "student_id"
 end
