@@ -14,6 +14,11 @@
   </div>
 
   <div class="field">
+  <%= f.label :I_am_a_coach %><br />
+  <%= f.check_box :is_coach %>
+  </div>
+
+  <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
