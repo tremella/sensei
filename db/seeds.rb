@@ -3,7 +3,10 @@
 #
 # Examples:
 
-stacy = User.create(email:'stacy@example.com',password:'password',nickname:'Stacy')
+stacy = User.create(email:'stacy@example.com',password:'grapefruit',nickname:'Stacy')
+dan = User.create(email:'dan@example.com',password:'rambutan',nickname:'Dan')
+jess = User.create(email:'jeshbrand@gmail.com',password:'banana',nickname:'Jess', is_coach:true)
+raj = User.create(email:'raj@example.com', password:'avocado',nickname:'Raj',is_coach:true)
 
 
 # get something called database cleaner gem 

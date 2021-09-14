@@ -1,0 +1,21 @@
+<%= form_for @slot do |form| %>
+  <div class="field">
+    <%= form.label :start %>
+    <%= form.datetime_select :start %>
+  </div>
+
+  <div class="field">
+  <%= form.label :end %>
+  <%= form.datetime_select :end %>
+  </div>
+
+  <div class="field">
+  <%= form.label :coach %>
+  <%= form.text_field :coach_id, readonly:true, value: @slot.coach_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+
+<% end %>

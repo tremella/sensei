@@ -1,0 +1,9 @@
+<h1>Slots</h1>
+
+<ul>
+  <% @slot.each do |slot| %>
+    <li>
+      <%= link_to slot.id, slot %>
+    </li>
+  <% end %>
+</ul>
