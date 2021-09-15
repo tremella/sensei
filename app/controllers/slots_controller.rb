@@ -4,10 +4,9 @@ class SlotsController < ApplicationController
     @slot = Slot.all
   end
 
+  #only coaches can make a new slot.
   def new
-    puts 'INSIDE NEW'
     @slot = Slot.new(coach_id: current_user.id)
-    
   end
   
   def create
@@ -31,6 +30,8 @@ class SlotsController < ApplicationController
 
   def show
     @slot = Slot.find(params[:id])
+    @coach = User.find(@slot.coach_id)
+    puts @coach.nickname, 'HERE'
   end
 
   private
