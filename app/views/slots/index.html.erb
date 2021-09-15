@@ -3,7 +3,7 @@
 
 <ul>
   <% @slot.each do |slot| %>
-    <% start_and_end = "from #{slot.start} to #{slot.end}" %>
+    <% start_and_end = "from #{slot.start.strftime("%H:%M%P")} to #{slot.end.strftime("%H:%M%P, %a %b %d")}" %>
     <li>
       <%= link_to start_and_end, slot %>
     </li>

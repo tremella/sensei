@@ -12,12 +12,6 @@ class SlotsController < ApplicationController
   
   def create
 
-    puts '*********'
-    puts params["slot"]["start"]
-    puts params["slot"]["end"]
-    puts '*********'
-
-
     @slot = Slot.new(slot_params)
     
     if @slot.save
