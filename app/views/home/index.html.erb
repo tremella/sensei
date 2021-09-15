@@ -2,9 +2,19 @@
 <% if current_user.present? %>
     <% if current_user.is_coach %>
         <h1>Welcome, coach <%= name %> </h1>
-        <%= link_to 'setup new availability slot', new_slot_path %>
+        <%= link_to 'Set up new availability slot', new_slot_path %>
+        <p> My upcoming meetings: </p>
     <% else %>
         <h1>Welcome, student <%= name %> </h1>
-        <%= link_to 'book time with a coach', slots_path %>
+        <%= link_to 'Book time with a coach', slots_path %>
+        <p> My upcoming meetings: </p>
+    <% end %>
+    <% @slots.each do |slot| %>
+        <% if (slot.coach_id == current_user.id || slot.student_id == current_user.id) && (slot.is_booked)%>
+            <% start_and_end = "from #{slot.start.strftime("%H:%M%P")} to #{slot.end.strftime("%H:%M%P, %a %b %d")}" %>
+            <li>
+            <%= link_to start_and_end, slot %>
+            </li>
+      <% end %>
     <% end %>
 <% end %>
