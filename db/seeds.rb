@@ -8,12 +8,18 @@ dan = User.create(email:'dan@example.com',password:'rambutan',nickname:'Dan')
 jess = User.create(email:'jeshbrand@gmail.com',password:'banana',nickname:'Jess', is_coach:true)
 raj = User.create(email:'raj@example.com', password:'avocado',nickname:'Raj',is_coach:true)
 
+#empty slots
 raj_mon = Slot.create(start: '2021-09-13 10:00:00', end: '2021-09-13 10:30:00', coach_id: '4')
 raj_tue = Slot.create(start: '2021-09-14 10:00:00', end: '2021-09-13 10:30:00', coach_id: '4')
 jess_wed = Slot.create(start: '2021-09-15 11:00:00', end: '2021-09-15 11:30:00', coach_id: '3')
 jess_thur = Slot.create(start: '2021-09-16 11:00:00', end: '2021-09-16 11:30:00', coach_id: '3')
+
+#booked slots
+#(MAKE SOME)
+
+
 # get something called database cleaner gem 
-# make more seeds
+
 # check out our seeds
 # user  rails console to check stuff
 # ffaker is a gem to create dummy data: great for generating stuff at scale. 
