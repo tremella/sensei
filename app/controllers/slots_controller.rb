@@ -29,6 +29,7 @@ class SlotsController < ApplicationController
     puts params, 'PARAMS HERE'
     @slot = Slot.find(params[:id])
     @slot.update(is_booked: 1, student_id: current_user.id)
+    redirect_to @slot
   end
 
   def update
