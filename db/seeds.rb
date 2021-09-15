@@ -11,11 +11,16 @@ raj = User.create(email:'raj@example.com', password:'avocado',nickname:'Raj',is_
 #empty slots
 raj_mon = Slot.create(start: '2021-09-13 10:00:00', end: '2021-09-13 10:30:00', coach_id: '4')
 raj_tue = Slot.create(start: '2021-09-14 10:00:00', end: '2021-09-13 10:30:00', coach_id: '4')
-jess_wed = Slot.create(start: '2021-09-15 11:00:00', end: '2021-09-15 11:30:00', coach_id: '3')
-jess_thur = Slot.create(start: '2021-09-16 11:00:00', end: '2021-09-16 11:30:00', coach_id: '3')
+jess_mon = Slot.create(start: '2021-09-13 11:00:00', end: '2021-09-15 11:30:00', coach_id: '3')
+jess_tue = Slot.create(start: '2021-09-14 11:00:00', end: '2021-09-16 11:30:00', coach_id: '3')
 
 #booked slots
 #(MAKE SOME)
+stacy_jess_wed = Slot.create(start: '2021-09-15 11:00:00', end: '2021-09-15 11:30:00', coach_id: '3', is_booked: '1', student_id: '1')
+stacy_raj_wed = Slot.create(start: '2021-09-15 12:00:00', end: '2021-09-15 12:30:00', coach_id: '4', is_booked: '1', student_id: '1')
+dan_jess_thur = Slot.create(start: '2021-09-16 11:00:00', end: '2021-09-16 11:30:00', coach_id: '3', is_booked: '1', student_id: '2')
+dan_raj_thur = Slot.create(start: '2021-09-16 11:00:00', end: '2021-09-16 11:30:00', coach_id: '4', is_booked: '1', student_id: '2')
+
 
 
 # get something called database cleaner gem 
