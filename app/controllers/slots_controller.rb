@@ -33,10 +33,9 @@ class SlotsController < ApplicationController
       @slot.update(is_booked: 0, student_id: '')
     elsif params[:task] == 'book'
       @slot.update(is_booked: 1, student_id: current_user.id)
-    else
-      puts 'error! unsure what you want to do'
+    else #should not occur
+      puts '...???'
     end
-    
     redirect_to @slot
   end
 
@@ -51,6 +50,13 @@ class SlotsController < ApplicationController
   end
 
   def destroy
+    puts 'I AM IN DESTROY'
+    puts 'I AM IN DESTROY'
+    puts 'I AM IN DESTROY'
+    @slot = Slot.find(params[:id])
+    @slot.destroy
+    redirect_to action: "index"
+
   end
 
   def show
