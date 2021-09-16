@@ -17,7 +17,7 @@ class SlotsController < ApplicationController
       redirect_to @slot
     else
       render :new
-      puts 'NOPE NOPE NOPE'
+      puts 'NOPE'
     end
   end
   
