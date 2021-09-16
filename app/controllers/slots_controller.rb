@@ -26,9 +26,17 @@ class SlotsController < ApplicationController
   end
 
   def edit
-    puts params, 'PARAMS HERE'
+    puts params[:task], '<<<PARAMS HERE'
+
     @slot = Slot.find(params[:id])
-    @slot.update(is_booked: 1, student_id: current_user.id)
+    if params[:task] == 'cancel'
+      @slot.update(is_booked: 0, student_id: '')
+    elsif params[:task] == 'book'
+      @slot.update(is_booked: 1, student_id: current_user.id)
+    else
+      puts 'error! unsure what you want to do'
+    end
+    
     redirect_to @slot
   end
 

@@ -6,7 +6,11 @@
     coach: <%= @coach.nickname %> <br>
     starts: <%= @slot.start.strftime("%H:%M%P %a %b %d") %><br> 
     ends: <%= @slot.end.strftime("%H:%M%P %a %b %d") %>
-    <% if !(current_user.is_coach) && !(@slot.is_booked) %>
-        <%= link_to 'book this slot', edit_slot_path %>
+    <% if !(current_user.is_coach) %>
+        <% if @slot.is_booked %>
+        <%= link_to 'cancel this booking', edit_slot_path(task:'cancel') %>
+        <% else %>
+        <%= link_to 'book this slot', edit_slot_path(task:'book') %>
+        <% end %>
     <% end %>
 </p>
