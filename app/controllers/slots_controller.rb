@@ -16,8 +16,10 @@ class SlotsController < ApplicationController
     if @slot.save
       redirect_to @slot
     else
+      flash[:notice] = 'uh oh! conflict with existing slot :('
       render :new
       puts 'NOPE'
+      
     end
   end
   
