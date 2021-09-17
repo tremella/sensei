@@ -50,7 +50,6 @@ class SlotsController < ApplicationController
   end
 
   def destroy
- 
     @slot = Slot.find(params[:id])
     @slot.destroy
     redirect_to "/"

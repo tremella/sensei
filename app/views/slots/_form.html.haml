@@ -1,0 +1,9 @@
+= form_for @slot do |form|
+  .field
+    = form.label :start
+    = form.datetime_field :start
+  .field
+    = form.label :coach
+    = form.text_field :coach_id, readonly:true, value: @slot.coach_id
+  .actions
+    = form.submit

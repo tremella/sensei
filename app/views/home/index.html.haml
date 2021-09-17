@@ -1,0 +1,22 @@
+- name = current_user.present? ? current_user.nickname : 'Stranger'
+- if current_user.present?
+  - if current_user.is_coach
+    %h1
+      Welcome, coach #{name}
+    = link_to 'Set up new availability slot', new_slot_path
+    %p My free times:
+    - @slots.each do |slot|
+      - if (slot.coach_id == current_user.id || slot.student_id == current_user.id) && !(slot.is_booked)
+        - start_and_end = "from #{slot.start.strftime("%H:%M%P")} to #{slot.end.strftime("%H:%M%P, %a %b %d")}"
+        %p
+          = link_to start_and_end, slot
+  - else
+    %h1
+      Welcome, student #{name}
+    = link_to 'Book time with a coach', slots_path
+  %p My upcoming meetings:
+  - @slots.each do |slot|
+    - if (slot.coach_id == current_user.id || slot.student_id == current_user.id) && (slot.is_booked)
+      - start_and_end = "from #{slot.start.strftime("%H:%M%P")} to #{slot.end.strftime("%H:%M%P, %a %b %d")}"
+      %p
+        = link_to start_and_end, slot

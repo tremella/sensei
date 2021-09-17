@@ -25,6 +25,8 @@ gem 'devise'
 gem 'pry'
 gem 'pry-remote'
 gem 'jquery-rails'
+gem "haml-rails", "~> 2.0"
+gem 'bootstrap', '~> 5.1.0'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
