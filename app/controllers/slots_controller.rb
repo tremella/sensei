@@ -48,9 +48,7 @@ class SlotsController < ApplicationController
   end
 
   def destroy
-    puts 'I AM IN DESTROY'
-    puts 'I AM IN DESTROY'
-    puts 'I AM IN DESTROY'
+ 
     @slot = Slot.find(params[:id])
     @slot.destroy
     redirect_to "/"

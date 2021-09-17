@@ -32,6 +32,7 @@ class Slot < ApplicationRecord
                 end
             end
         end
+        puts 'HERE 1 '
         return is_overlap
     end
 
