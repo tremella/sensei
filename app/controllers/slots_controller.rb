@@ -26,8 +26,6 @@ class SlotsController < ApplicationController
   end
 
   def edit
-    puts params[:task], '<<<PARAMS HERE'
-
     @slot = Slot.find(params[:id])
     if params[:task] == 'cancel'
       @slot.update(is_booked: 0, student_id: '')

@@ -21,8 +21,6 @@ stacy_raj_wed = Slot.create(start: '2021-09-15 12:00:00', end: '2021-09-15 12:30
 dan_jess_thur = Slot.create(start: '2021-09-16 11:00:00', end: '2021-09-16 11:30:00', coach_id: '3', is_booked: '1', student_id: '2')
 dan_raj_thur = Slot.create(start: '2021-09-16 11:00:00', end: '2021-09-16 11:30:00', coach_id: '4', is_booked: '1', student_id: '2')
 
-# fake slot, should not appear if I seed db: testing. 
-raj_mon2 = Slot.create(start: '2021-09-13 10:01:00', end: '2021-09-13 10:31:00', coach_id: '4')
 
 
 # get something called database cleaner gem 
