@@ -11,11 +11,9 @@ class Slot < ApplicationRecord
 
     # handling 'student books slot'/'student cancels slot'
     before_update do #this actually means 'after update but before save'
-        if self.is_booked #making this more like 'if we 'try' book it'
-            puts self.start
-            puts self.end
-            puts self.coach_id
-            puts self.student_id
+        if student_double_booked#making this more like 'if we 'try' book it'
+            prevent_creation
+            puts 'OUTCOME!!!!'
         end
     end
 
@@ -43,7 +41,26 @@ class Slot < ApplicationRecord
 
     # student specific (for now). Maybe merge with slot_overlaps if I refactor it.
     def student_double_booked
-        prevent_creation
+        is_overlap = false
+        slots = Slot.all
+        slots.each do |slot|
+            if slot.id != self.id #ensure self doesn't assess against self
+                if slot.student_id == self.student_id && self.student_id != nil#we've found all OUR other slots now.
+                    # check for overlap
+                    print '**',self.id, self.student_id, 'vs', slot.id, slot.student_id, '**' 
+                    # puts self.student_id == nil
+                    if self.start >= slot.start && self.start <= slot.start + (60*30)
+                        is_overlap = true
+                    elsif self.end >= slot.start && self.end <= slot.start + (60*30)
+                        is_overlap = true
+                    else
+                        next
+                    end
+                end
+                # if we overlap, return true
+            end
+        end
+        return is_overlap
     end
 
 
