@@ -3,19 +3,41 @@ console.log('on click, generate timeslices (only for 9am to 6pm)')
 
 
 document.addEventListener('DOMContentLoaded', function(){
-  
-    var allDays = document.querySelectorAll("td");
-    allDays.forEach(element => element.addEventListener('click', ()=>{
-        yyyy = element.innerText.slice(0,4)
-        mm = element.innerText.slice(5,7)
-        dd = element.innerText.slice(8,10)
+    var times = [
+        '09:00',
+        '09:30',
+        '10.00',
+        '10.30',
+        '11.00',
+        '11.30',
+        '12.00',
+        '12.30',
+        '13.00',
+        '13.30',
+        '14.00',
+        '14.30',
+        '15.00',
+        '15.30',
+        '16.00',
+        '16.30',
+        '17.00',
+        '17.30',
+    ]
+    var allDates = document.querySelectorAll("td");
+
+
+    allDates.forEach(date => date.addEventListener('click', ()=>{
+        yyyy = date.innerText.slice(0,4)
+        mm = date.innerText.slice(5,7)
+        dd = date.innerText.slice(8,10)
 
         const day = new Date(yyyy, mm, dd);
         isWeekend = (day.getDay() == 1 || day.getDay() == 2)
 
         if (isWeekend == false) {
-            console.log(element.innerText)
-        }
+            console.log(date.innerText, times)
+        } 
+        console.log(day.getDay())
     }))
 
 
