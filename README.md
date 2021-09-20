@@ -1,6 +1,6 @@
 # README
 
-### To demo:
+### How to demo:
 
 [ UPDATE THIS SECTION WHEN DONE ]
 
