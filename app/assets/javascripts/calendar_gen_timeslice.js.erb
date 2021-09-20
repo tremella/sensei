@@ -1,16 +1,22 @@
 console.log('Hello! I am in the timeslice code!')
-console.log( 'make an event handler for any td of class DAY')
-console.log( 'parse them to see if any are sat sun, so we can ignore those')
-console.log('else: event handler for click, trigger reaction')
+console.log( 'NOW, parse them to see if any are sat sun, so we can ignore those')
 console.log('remember, timeslices only for 9am to 6pm')
 
 
 document.addEventListener('DOMContentLoaded', function(){
   
-    var matches = document.querySelectorAll("td");
-    console.log(matches)
-    matches.forEach(element => element.addEventListener('click', ()=>{
-        console.log(element.innerText)
+    var allDays = document.querySelectorAll("td");
+    allDays.forEach(element => element.addEventListener('click', ()=>{
+        yyyy = element.innerText.slice(0,4)
+        mm = element.innerText.slice(5,7)
+        dd = element.innerText.slice(8,10)
+
+        const day = new Date(yyyy, mm, dd);
+        isWeekend = (day.getDay() == 1 || day.getDay() == 2)
+
+        if (isWeekend == false) {
+            console.log(element.innerText)
+        }
     }))
 
 
