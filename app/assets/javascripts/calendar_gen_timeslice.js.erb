@@ -27,19 +27,20 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
     allDates.forEach(date => date.addEventListener('click', ()=>{
-        console.log(date.innerText)
         yyyy = date.innerText.slice(0,4)
         mm = parseInt(date.innerText.slice(5,7)) -1 
         dd = date.innerText.slice(8,10)
-        console.log(yyyy,mm,dd)
-        console.log('ok')
-        const day = new Date(yyyy, mm, dd);
-        console.log(day, '***')
-
-        var options = { weekday: 'long'};
-        dayOfWeek = new Intl.DateTimeFormat('en-US', options).format(day)
-
-        console.log(dayOfWeek)
+        
+        var options = { weekday: 'short'};
+        day = new Intl.DateTimeFormat('en-US', options).format(new Date(yyyy, mm, dd))
+        isWeekday = ['Mon','Tue','Wed','Thu','Fri'].includes(day)
+      
+        if (isWeekday) {
+            console.log('time to generate a timeslice...')
+        } else {
+            console.log('weekend. I do nothing!')
+        }
+        
     }))
 
 
