@@ -3,3 +3,21 @@ console.log( 'make an event handler for any td of class DAY')
 console.log( 'parse them to see if any are sat sun, so we can ignore those')
 console.log('else: event handler for click, trigger reaction')
 console.log('remember, timeslices only for 9am to 6pm')
+
+
+document.addEventListener('DOMContentLoaded', function(){
+  
+    var matches = document.querySelectorAll("td");
+    console.log(matches)
+    matches.forEach(element => element.addEventListener('click', ()=>{
+        console.log(element.innerText)
+    }))
+
+
+
+
+
+
+
+
+});
