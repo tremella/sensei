@@ -27,17 +27,19 @@ document.addEventListener('DOMContentLoaded', function(){
 
 
     allDates.forEach(date => date.addEventListener('click', ()=>{
+        console.log(date.innerText)
         yyyy = date.innerText.slice(0,4)
-        mm = date.innerText.slice(5,7)
+        mm = parseInt(date.innerText.slice(5,7)) -1 
         dd = date.innerText.slice(8,10)
-
+        console.log(yyyy,mm,dd)
+        console.log('ok')
         const day = new Date(yyyy, mm, dd);
-        isWeekend = (day.getDay() == 1 || day.getDay() == 2)
+        console.log(day, '***')
 
-        if (isWeekend == false) {
-            console.log(date.innerText, times)
-        } 
-        console.log(day.getDay())
+        var options = { weekday: 'long'};
+        dayOfWeek = new Intl.DateTimeFormat('en-US', options).format(day)
+
+        console.log(dayOfWeek)
     }))
 
 
