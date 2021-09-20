@@ -1,4 +1,5 @@
 <div class="simple-calendar">
+  <%= javascript_include_tag "calendar_gen_timeslice" %>
   <div class="calendar-heading">
     <%= link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view %>
     <% if calendar.number_of_weeks == 1 %>
@@ -25,7 +26,6 @@
             <%= content_tag :td, class: calendar.td_classes_for(day) do %>
               <% if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(passed_block) %>
                 <% capture_haml(day, sorted_events.fetch(day, []), &passed_block) %>
-                (o__o )
               <% else %>
                 <% passed_block.call day, sorted_events.fetch(day, []) %>
               <% end %>
