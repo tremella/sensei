@@ -2,11 +2,25 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 .simple-calendar{
-    width: 70% ;
+    // width: 70% ;
     font-size: 90%
 }
 
 .timeslice{
     border:1px solid black;
-    width: 70%
+    // width: 70%
+}
+
+.parent{
+    height: auto;
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    justify-content: space-between;
 }

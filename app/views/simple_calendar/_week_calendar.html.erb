@@ -1,5 +1,5 @@
 <div class='parent'>
-  <div class="simple-calendar">
+  <div class="card simple-calendar">
     <%= javascript_include_tag "calendar_gen_timeslice" %>
     <div class="calendar-heading">
       <%= link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view %>
@@ -37,7 +37,7 @@
       </tbody>
     </table>
   </div>
-  <div class='booking-window' id='booking-window'>
+  <div class='card booking-window' id='booking-window'>
     <table id='booking-table'>
     </table>
   </div>
