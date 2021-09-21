@@ -1,8 +1,19 @@
 console.log('Hello! I am in the timeslice code!')
-console.log('on click, generate timeslices (only for 9am to 6pm)')
+
+function makeBooking(){
+    var allSliders = document.querySelectorAll('booking-slider')
+    allSliders.forEach(slider => {
+        console.log('*')
+    })
+}
 
 
 document.addEventListener('DOMContentLoaded', function(){
+
+
+
+
+
     var times = [
         '09:00',
         '09:30',
@@ -25,7 +36,21 @@ document.addEventListener('DOMContentLoaded', function(){
     ]
     var allDates = document.querySelectorAll("td");
     let bookingTable = document.getElementById('booking-table')
-    let i = 0
+    let rowIndex = 0
+
+    function generateBookingSliders(){
+        bookingTable.innerHTML = '<h4> timeslots </h4>'
+        times.forEach(timeslot => {
+            cell = bookingTable.insertRow(rowIndex)
+            cell.innerHTML += timeslot
+            cell.innerHTML += `&nbsp&nbsp&nbsp&nbsp<label class="switch">
+            <input type="checkbox">
+            <span class="slider round" id="booking-slider" onclick="makeBooking()"></span>
+            </label>`;
+            cell.classList.add('timeslice')
+            rowIndex += 1
+    })
+}
 
     allDates.forEach(date => date.addEventListener('click', ()=>{
         y = date.innerText.slice(0,4)
@@ -37,25 +62,20 @@ document.addEventListener('DOMContentLoaded', function(){
         isWeekday = ['Mon','Tue','Wed','Thu','Fri'].includes(day)
         
         if (isWeekday) {
-            i = 0
-            bookingTable.innerHTML = '<h4> timeslots </h4>'
-            times.forEach(timeslot => {
-                cell = bookingTable.insertRow(i)
-                cell.innerHTML += timeslot
-                cell.innerHTML += `&nbsp&nbsp&nbsp&nbsp<label class="switch">
-                <input type="checkbox">
-                <span class="slider round"></span>
-              </label>`;
-                cell.classList.add('timeslice')
-                i+= 1
-            })
+            rowIndex = 0
+            generateBookingSliders()
   
         } else {
-            console.log('weekend. I do nothing!')
             bookingTable.innerHTML = '<p> weekend slots cannot be booked :) </p>'
         }
+
+       
+        
         
     }))
+
+    
+
 
 
 
