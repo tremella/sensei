@@ -7,15 +7,18 @@
 }
 
 .timeslice{
-    border:1px solid black;
+    border:1px solid lightgray;
     font-size: 90%;
 }
 
 .parent{
     height: auto;
     display: grid;
+    margin-bottom: 100px;
     grid-gap: 1rem;
     grid-template-columns: 2fr 1fr;
+    max-width: 960px;
+    min-width: 660px;
 }
 
 .card{

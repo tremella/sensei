@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function(){
         
         if (isWeekday) {
             i = 0
-            bookingTable.innerHTML = ''
+            bookingTable.innerHTML = '<h4> timeslots </h4>'
             times.forEach(timeslot => {
                 cell = bookingTable.insertRow(i)
                 cell.innerHTML = timeslot;
@@ -48,6 +48,7 @@ document.addEventListener('DOMContentLoaded', function(){
   
         } else {
             console.log('weekend. I do nothing!')
+            bookingTable.innerHTML = '<p> weekend slots cannot be booked :) </p>'
         }
         
     }))
