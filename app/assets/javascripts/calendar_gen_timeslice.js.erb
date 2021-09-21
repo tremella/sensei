@@ -41,7 +41,11 @@ document.addEventListener('DOMContentLoaded', function(){
             bookingTable.innerHTML = '<h4> timeslots </h4>'
             times.forEach(timeslot => {
                 cell = bookingTable.insertRow(i)
-                cell.innerHTML = timeslot;
+                cell.innerHTML += timeslot
+                cell.innerHTML += `&nbsp&nbsp&nbsp&nbsp<label class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+              </label>`;
                 cell.classList.add('timeslice')
                 i+= 1
             })
