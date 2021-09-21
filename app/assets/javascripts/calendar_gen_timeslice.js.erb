@@ -24,19 +24,26 @@ document.addEventListener('DOMContentLoaded', function(){
         '17.30',
     ]
     var allDates = document.querySelectorAll("td");
-
+    let bookingTable = document.getElementById('booking-table')
+    let i = 0
 
     allDates.forEach(date => date.addEventListener('click', ()=>{
-        yyyy = date.innerText.slice(0,4)
-        mm = parseInt(date.innerText.slice(5,7)) -1 
-        dd = date.innerText.slice(8,10)
+        y = date.innerText.slice(0,4)
+        m = parseInt(date.innerText.slice(5,7)) -1 
+        d = date.innerText.slice(8,10)
         
         var options = { weekday: 'short'};
-        day = new Intl.DateTimeFormat('en-US', options).format(new Date(yyyy, mm, dd))
+        day = new Intl.DateTimeFormat('en-US', options).format(new Date(y,m,d))
         isWeekday = ['Mon','Tue','Wed','Thu','Fri'].includes(day)
-      
+        
         if (isWeekday) {
-            console.log('time to generate a timeslice...')
+            times.forEach(timeslot => {
+                cell = bookingTable.insertRow(i)
+                cell.innerHTML = timeslot;
+                cell.classList.add('timeslice')
+                i += 1
+            })
+  
         } else {
             console.log('weekend. I do nothing!')
         }

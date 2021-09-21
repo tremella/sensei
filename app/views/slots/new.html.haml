@@ -1,5 +1,9 @@
-%h1 New Slot
+%h2 New Slot
 = render 'form', slot: @slot
+
+%h3 old interface above ^^^
+%br
+%h3 new interface below vvv
 
 = week_calendar(number_of_weeks: 4) do |date| 
   = date 
