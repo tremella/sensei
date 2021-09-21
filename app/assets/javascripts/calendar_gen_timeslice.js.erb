@@ -37,11 +37,13 @@ document.addEventListener('DOMContentLoaded', function(){
         isWeekday = ['Mon','Tue','Wed','Thu','Fri'].includes(day)
         
         if (isWeekday) {
+            i = 0
+            bookingTable.innerHTML = ''
             times.forEach(timeslot => {
                 cell = bookingTable.insertRow(i)
                 cell.innerHTML = timeslot;
                 cell.classList.add('timeslice')
-                i += 1
+                i+= 1
             })
   
         } else {
