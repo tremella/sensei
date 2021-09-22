@@ -1,37 +1,38 @@
 // Place all the styles related to the Slots controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-.simple-calendar{
-    font-size: 90%;
-    min-width: 450px;
-}
 
-.timeslice{
-    // border:1px solid lightgray;
-    font-size: 90%;
-}
+// .simple-calendar{
+//     font-size: 90%;
+//     min-width: 450px;
+// }
 
-.parent{
-    height: auto;
-    display: grid;
-    margin-bottom: 20px;
-    margin-left: 20px;
-    grid-gap: 1rem;
-    grid-template-columns: 2fr 1fr;
-    max-width: 960px;
-    min-width: 660px;
-}
+// .timeslice{
+//     // border:1px solid lightgray;
+//     font-size: 90%;
+// }
 
-.card{
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
-    justify-content: space-between;
-}
+// .parent{
+//     height: auto;
+//     display: grid;
+//     margin-bottom: 20px;
+//     margin-left: 20px;
+//     grid-gap: 1rem;
+//     grid-template-columns: 2fr 1fr;
+//     max-width: 960px;
+//     min-width: 660px;
+// }
 
-.booking-window{
-    max-width: 90%;
-}
+// .card{
+//     display: flex;
+//     flex-direction: column;
+//     padding: 1rem;
+//     justify-content: space-between;
+// }
+
+// .booking-window{
+//     max-width: 90%;
+// }
 
 
 /* The switch - the box around the slider */

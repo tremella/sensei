@@ -1,5 +1,5 @@
-<div class='parent'>
-  <div class="card simple-calendar">
+<div class='row container-fluid'>
+  <div class="card simple-calendar container-fluid pt-3 col-sm-8">
     <%= javascript_include_tag "calendar_gen_timeslice" %>
     <div class="calendar-heading">
       <%= link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view %>
@@ -37,7 +37,7 @@
       </tbody>
     </table>
   </div>
-  <div class='card booking-window' id='booking-window'>
+  <div class='card booking-window container-fluid pt-3 my-5 bg-dark text-white col-sm-4' id='booking-window'>
     <table id='booking-table'>
     </table>
   </div>
