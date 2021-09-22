@@ -23,8 +23,8 @@ class SlotsController < ApplicationController
     end
   end
   
-  def book
-    
+  def timeslices
+    render :timeslices, layout: false
   end
 
   def edit

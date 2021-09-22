@@ -1,13 +1,12 @@
 Rails.application.routes.draw do
   get 'home/index'
 
-  # get 'slots/new'
-  # get 'slots/book'
-  # get 'slots/destroy'
 
-  # post 'slots/new'
-
-  resources :slots
+  resources :slots do
+    collection do
+      post :timeslices
+    end
+  end
   
   devise_for :users
 

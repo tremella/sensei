@@ -1,6 +1,6 @@
 console.log('Hello! I am in the timeslice code!')
 
-<%# this is just an onClick for testing purposes%>
+
 function doSomething(){
     var checkboxes = document.querySelectorAll('.time-checkbox')
     checkboxes.forEach(box => {
@@ -8,8 +8,35 @@ function doSomething(){
     })
 }
 
+$(document).ready(function() {
 
+    $("td.slot-day").on("click", function() {
+
+        console.log('clicky')
+        $.ajax({
+        method: "POST",
+        url: "timeslices",
+        data: { fruit: "banana", vegie: "carrot" }
+      })
+        .done(function( page ) {
+          $("#booking-window").html(page)
+        });
+
+     });
+
+     
+
+
+
+});
+
+
+<%#
 document.addEventListener('DOMContentLoaded', function(){
+
+    
+
+
 
     var times = [
         '09:00',
@@ -32,6 +59,7 @@ document.addEventListener('DOMContentLoaded', function(){
         '17.30',
     ]
     var allDates = document.querySelectorAll("td");
+
     let bookingTable = document.getElementById('booking-table')
     let rowIndex = 0
 
@@ -47,7 +75,6 @@ document.addEventListener('DOMContentLoaded', function(){
             rowIndex += 1
     })
 }
-    <%# this ensures any clicked calendar day generates the timeslices %>
     allDates.forEach(date => date.addEventListener('click', ()=>{
         y = date.innerText.slice(0,4)
         m = parseInt(date.innerText.slice(5,7)) -1 
@@ -65,11 +92,11 @@ document.addEventListener('DOMContentLoaded', function(){
             bookingTable.innerHTML = '<p> weekend slots cannot be booked :) </p>'
         }
 
-       
+    
         
         
     }))
 
 
-
 });
+%>
