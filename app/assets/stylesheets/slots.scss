@@ -40,6 +40,17 @@
 // }
 
 
+
+a:visited {
+  color: rgb(0, 140, 221) !important;
+}
+
+a:active {
+  color: rgb(0, 217, 255) !important;
+}
+
+
+
 /* The switch - the box around the slider */
 .switch {
     position: relative;
