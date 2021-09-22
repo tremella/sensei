@@ -1,46 +1,9 @@
 %div
     %h4 timeslots
-    %input#timeslice0{name: "timeslice",type: "checkbox"}/
-    %label{for: "timeslice0"} 9.00am &nbsp&nbsp
-    %input#timeslice1{name: "timeslice",type: "checkbox"}/
-    %label{for: "timeslice1"} 9.30am
-    %br
-    %input#timeslice2{name: "timeslice",type: "checkbox"}/
-    %label{for: "timeslice2"} 10.00am &nbsp&nbsp
-    %input#timeslice3{name: "timeslice",type: "checkbox"}/
-    %label{for: "timeslice3"} 10.30am
-    %br
-    %input#timeslice4{name: "timeslice",type: "checkbox"}/
-    %label{for: "timeslice4"} 11.00am &nbsp&nbsp
-    %input#timeslice5{name: "timeslice",type: "checkbox"}/
-    %label{for: "timeslice5"} 11.30am
-    %br
-    %input#timeslice6{name: "timeslice",type: "checkbox"}/
-    %label{for: "timeslice6"} 12.00pm &nbsp&nbsp
-    %input#timeslice7{name: "timeslice",type: "checkbox"}/
-    %label{for: "timeslice7"} 12.30pm
-    %br
-    %input#timeslice8{name: "timeslice",type: "checkbox"}/
-    %label{for: "timeslice8"} 13.00pm &nbsp&nbsp
-    %input#timeslice9{name: "timeslice",type: "checkbox"}/
-    %label{for: "timeslice9"} 13.30pm
-    %br
-    %input#timeslice10{name: "timeslice",type: "checkbox"}/
-    %label{for: "timeslice10"} 14.00pm &nbsp&nbsp
-    %input#timeslice12{name: "timeslice",type: "checkbox"}/
-    %label{for: "timeslice12"} 14.30pm
-    %br
-    %input#timeslice12{name: "timeslice",type: "checkbox"}/
-    %label{for: "timeslice12"} 15.00pm &nbsp&nbsp
-    %input#timeslice13{name: "timeslice",type: "checkbox"}/
-    %label{for: "timeslice13"} 15.30pm
-    %br
-    %input#timeslice14{name: "timeslice",type: "checkbox"}/
-    %label{for: "timeslice14"} 16.00pm &nbsp&nbsp
-    %input#timeslice15{name: "timeslice",type: "checkbox"}/
-    %label{for: "timeslice15"} 16.30pm
-    %br
-    %input#timeslice16{name: "timeslice",type: "checkbox"}/
-    %label{for: "timeslice16"} 17.00pm &nbsp&nbsp
-    %input#timeslice17{name: "timeslice",type: "checkbox"}/
-    %label{for: "timeslice17"} 17.30pm
+    -  x = ['09:00','09:30','10.00','10.30','11.00','11.30',
+            '12.00','12.30','13.00','13.30','14.00',
+            '14.30','15.00','15.30','16.00','16.30',
+        '17.00','17.30',]
+    - (0..17).each do |i|
+        %input#i{name: "timeslice",type: "checkbox"}/
+        %label{for: i} #{x[i]} &nbsp&nbsp
