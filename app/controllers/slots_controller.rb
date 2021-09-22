@@ -1,7 +1,7 @@
 class SlotsController < ApplicationController
 
   def index
-    @slot = Slot.all
+    @slot = Slot.all.order("start ASC")
   end
 
 
