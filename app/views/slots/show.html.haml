@@ -16,4 +16,6 @@
   - else
     - if @slot.is_booked
       = link_to 'cancel this booking', edit_slot_path(task:'cancel')
-    = link_to 'delete this slot', slot_path, method: :delete
+
+    - if @slot.coach_id == current_user.id  
+      = link_to 'delete this slot', slot_path, method: :delete
