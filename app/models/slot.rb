@@ -37,6 +37,10 @@ class Slot < ApplicationRecord
         throw :abort
     end
 
+    def tessa(coach_id, params_id)
+        puts 'I am TESSA' + coach_id.to_s + params_id.to_s
+    end
+
     # student specific (for now). REFAC: DRY
     def student_double_booked
         is_overlap = false

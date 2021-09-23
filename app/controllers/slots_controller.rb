@@ -18,8 +18,6 @@ class SlotsController < ApplicationController
     else
       flash[:notice] = 'uh oh! conflict with existing slot :('
       render :new
-      puts 'NOPE'
-      
     end
   end
   
@@ -27,11 +25,10 @@ class SlotsController < ApplicationController
     puts params
     @slots = Slot.all.order("start ASC")
     @slots.each do |slot|
+      slot.tessa(slot.coach_id ,params[:coach_id].to_i)
       if slot.coach_id == params[:coach_id].to_i
         if slot.start.to_s.slice(0,10) == params[:date].slice(0,10)
           puts 'at least one slot exists on this day'
-        else
-          puts 'no pre-existing slots for this coach today'
         end
       end
     end
