@@ -37,8 +37,13 @@ class Slot < ApplicationRecord
         throw :abort
     end
 
-    def tessa(coach_id, params_id)
-        puts 'I am TESSA' + coach_id.to_s + params_id.to_s
+    def find_others_on_this_day(slot, params)
+        puts 'finding...'
+        if slot.coach_id == params[:coach_id].to_i
+            if slot.start.to_s.slice(0,10) == params[:date].slice(0,10)
+                puts 'found on this day ! ' + slot.start.to_s.slice(0,10) + '  ' + params[:date].slice(0,10)
+            end
+        end
     end
 
     # student specific (for now). REFAC: DRY

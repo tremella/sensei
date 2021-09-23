@@ -25,12 +25,7 @@ class SlotsController < ApplicationController
     puts params
     @slots = Slot.all.order("start ASC")
     @slots.each do |slot|
-      slot.tessa(slot.coach_id ,params[:coach_id].to_i)
-      if slot.coach_id == params[:coach_id].to_i
-        if slot.start.to_s.slice(0,10) == params[:date].slice(0,10)
-          puts 'at least one slot exists on this day'
-        end
-      end
+      slot.find_others_on_this_day(slot,params)
     end
     render :timeslices, layout: false
   end
