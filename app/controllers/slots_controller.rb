@@ -24,7 +24,17 @@ class SlotsController < ApplicationController
   end
   
   def timeslices
-    puts params, '<< PARAMS HERE'
+    puts params
+    @slots = Slot.all.order("start ASC")
+    @slots.each do |slot|
+      if slot.coach_id == params[:coach_id].to_i
+        if slot.start.to_s.slice(0,10) == params[:date].slice(0,10)
+          puts 'at least one slot exists on this day'
+        else
+          puts 'no pre-existing slots for this coach today'
+        end
+      end
+    end
     render :timeslices, layout: false
   end
 

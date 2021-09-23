@@ -12,13 +12,13 @@ $(document).ready(function() {
 
     $("td.slot-day").on("click", function() {
 
-        console.log($(this).attr('data-coach-id'));
-        console.log($(this).text());
+        var this_coach_id = $(this).attr('data-coach-id');
+        var this_date = $(this).text().slice(0,10)
         console.log('clicky')
         $.ajax({
         method: "POST",
         url: "timeslices",
-        data: { date: $(this).text(), coach_id: $(this).attr('data-coach-id') }
+        data: { date: this_date, coach_id: this_coach_id }
       })
         .done(function( page ) {
           $("#booking-window").html(page)
