@@ -43,7 +43,7 @@ class Slot < ApplicationRecord
         if slot.coach_id == params[:coach_id].to_i
             if slot.start.to_s.slice(0,10) == params[:date].slice(0,10)
                 x = slot.start.to_s.slice(11,20)
-                return x.slice(0,8)
+                return x.slice(0,5)
             end
             return nil
         end

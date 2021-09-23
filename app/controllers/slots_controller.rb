@@ -30,6 +30,7 @@ class SlotsController < ApplicationController
         @existing_slots_for_this_day.push(slot.find_others_on_this_day(slot,params))
       end
     end
+    puts @existing_slots_for_this_day
     render :timeslices, layout: false
   end
 

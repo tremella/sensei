@@ -1,10 +1,15 @@
 %div
     %h4 timeslots
     -  @existing_slots_for_this_day
-    -  possible_slots = ['09:00','09:30','10.00','10.30','11.00','11.30',
-            '12.00','12.30','13.00','13.30','14.00',
-            '14.30','15.00','15.30','16.00','16.30',
-        '17.00','17.30']
-    - (0..17).each do |i|
-        %input#i{name: "timeslice",type: "checkbox"}/
-        %label{for: i} #{possible_slots[i]} &nbsp&nbsp
+    -  possible_slots = ['09:00','09:30','10:00','10:30','11:00','11:30',
+            '12:00','12:30','13:00','13:30','14:00',
+            '14:30','15:00','15:30','16:00','16:30',
+        '17:00','17:30']
+    - 
+    - possible_slots.each do |slot|
+        - if @existing_slots_for_this_day.include?(slot)
+            %input#slot{name: "timeslice",type: "checkbox",checked: "true"}/
+            %label{for: slot} #{slot} booked
+        - else
+            %input#slot{name: "timeslice",type: "checkbox"}/
+            %label{for: slot} #{slot} &nbsp&nbsp
