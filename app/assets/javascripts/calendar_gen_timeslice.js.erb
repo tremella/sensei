@@ -12,19 +12,19 @@ $(document).ready(function() {
 
     $("td.slot-day").on("click", function() {
 
+        console.log($(this).attr('data-coach-id'));
+        console.log($(this).text());
         console.log('clicky')
         $.ajax({
         method: "POST",
         url: "timeslices",
-        data: { fruit: "banana", vegie: "carrot" }
+        data: { date: $(this).text(), coach_id: $(this).attr('data-coach-id') }
       })
         .done(function( page ) {
           $("#booking-window").html(page)
         });
 
      });
-
-     
 
 
 

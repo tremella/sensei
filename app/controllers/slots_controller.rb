@@ -24,6 +24,7 @@ class SlotsController < ApplicationController
   end
   
   def timeslices
+    puts params, '<< PARAMS HERE'
     render :timeslices, layout: false
   end
 
