@@ -40,15 +40,14 @@ class Slot < ApplicationRecord
     # when a day is selected on the New Slot calendar, 
     # this produces an arr of all other slots on that day.
     def find_others_on_this_day(slot, params)
-        results = []
         if slot.coach_id == params[:coach_id].to_i
             if slot.start.to_s.slice(0,10) == params[:date].slice(0,10)
-                # puts 'found ! ' + slot.start.to_s.slice(11,15) + '  ' + params[:date].slice(0,10)
                 x = slot.start.to_s.slice(11,20)
-                results.push( x.slice(0,8) )
+                return x.slice(0,8)
             end
+            return nil
         end
-        return results
+        return nil
     end
 
     # student specific (for now). REFAC: DRY

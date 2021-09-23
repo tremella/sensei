@@ -24,8 +24,11 @@ class SlotsController < ApplicationController
   def timeslices
     puts params
     @slots = Slot.all.order("start ASC")
+    @existing_slots_for_this_day = []
     @slots.each do |slot|
-      slot.find_others_on_this_day(slot,params)
+      if slot.find_others_on_this_day(slot,params) != nil
+        @existing_slots_for_this_day.push(slot.find_others_on_this_day(slot,params))
+      end
     end
     render :timeslices, layout: false
   end
