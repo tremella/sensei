@@ -1,13 +1,8 @@
 %div
     %h4 slots
-    -  @slots
-    -  @existing_slots_for_this_day
     -  possible_slots = {'09:00'=> nil,'09:30'=> nil,'10:00'=> nil,'10:30'=> nil,'11:00'=> nil,'11:30'=> nil,'12:00'=> nil,'12:30'=> nil,'13:00'=> nil,'13:30'=> nil,'14:00'=> nil,'14:30'=> nil,'15:00'=> nil,'15:30'=> nil,'16:00'=> nil,'16:30'=> nil,
 '17:00'=> nil,'17:30'=> nil}
     .row
-        -# -p @slots
-        -# -p possible_slots['09:00']
-        -# -p @existing_slots_for_this_day
         - @existing_slots_for_this_day.each do |ex_slot|
             - if possible_slots.keys.include?(ex_slot[0])
                 - possible_slots[ex_slot[0]] = ex_slot
@@ -18,13 +13,13 @@
                         -p 'booked by someone'
                         .row
                             .col-12
-                                .card.bg-primary.text-dark
+                                .card.bg-warning.text-dark
                                     .card-body 
                                         .row 
                                             .col-7
-                                                %label{for: p_slot} #{p_slot[1][0]} BOOKED slot
+                                                %label{for: p_slot} #{p_slot[1][0]} booked slot
                                             .col-3
-                                                = link_to 'cancel?', '#', class: 'btn btn-primary custom-border'
+                                                = link_to 'cancel?', '#', class: 'btn btn-secondary'
                     - else 
                         -p 'not yet booked'
                         .row
@@ -35,7 +30,7 @@
                                             .col-7
                                                 %label{for: p_slot} #{p_slot[1][0]} bookable slot
                                             .col-3
-                                                = link_to 'delete?', '#', class: 'btn btn-primary custom-border'
+                                                = link_to 'delete?', '#', class: 'btn btn-secondary custom-border'
                 - else
                     -p 'empty'
                     .row
