@@ -12,18 +12,18 @@
                     - if p_slot[1][1] == true
                         .row
                             .col-12
-                                .card.bg-warning.text-dark
-                                    .card-body 
+                                .card.bg-warning.text-dark.m-1
+                                    .card-body.p-3 
                                         .row 
                                             .col-7
                                                 %label{for: p_slot} #{p_slot[1][0]} booked slot
                                             .col-3
-                                                = link_to 'cancel?', '#', class: 'btn btn-secondary'
+                                                = link_to 'cancel?', '#', class: 'btn btn-secondary custom-border'
                     - else 
                         .row
                             .col-12
-                                .card.bg-primary.text-dark
-                                    .card-body 
+                                .card.bg-primary.text-dark.m-1
+                                    .card-body.p-3  
                                         .row 
                                             .col-7
                                                 %label{for: p_slot} #{p_slot[1][0]} bookable slot
@@ -32,8 +32,8 @@
                 - else
                     .row
                         .col-12
-                            .card.bg-light.text-dark
-                                .card-body 
+                            .card.bg-light.text-dark.m-1
+                                .card-body.p-3 
                                     .row 
                                         .col-7 
                                             %label{for: p_slot} #{p_slot[0]} non-bookable  
