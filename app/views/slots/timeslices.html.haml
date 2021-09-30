@@ -1,15 +1,15 @@
 %div
-    %h4 timeslots
+    %h4 slots
+    -  @slots
     -  @existing_slots_for_this_day
-    -  possible_slots = ['09:00','09:30','10:00','10:30','11:00','11:30',
-            '12:00','12:30','13:00','13:30','14:00',
-            '14:30','15:00','15:30','16:00','16:30',
-        '17:00','17:30']
-    - 
-    - possible_slots.each do |slot|
-        - if @existing_slots_for_this_day.include?(slot)
-            %input#slot{name: "timeslice",type: "checkbox",checked: "true"}/
-            %label{for: slot} #{slot} booked
-        - else
-            %input#slot{name: "timeslice",type: "checkbox"}/
-            %label{for: slot} #{slot} &nbsp&nbsp
+    -  possible_slots = {'09:00'=> nil,'09:30'=> nil,'10:00'=> nil,'10:30'=> nil,'11:00'=> nil,'11:30'=> nil,'12:00'=> nil,'12:30'=> nil,'13:00'=> nil,'13:30'=> nil,'14:00'=> nil,'14:30'=> nil,'15:00'=> nil,'15:30'=> nil,'16:00'=> nil,'16:30'=> nil,
+'17:00'=> nil,'17:30'=> nil}
+    .row
+        -# -p @slots
+        -# -p possible_slots['09:00']
+        -# -p @existing_slots_for_this_day
+        -# -p current_user.id
+        - @existing_slots_for_this_day.each do |ex_slot|
+            - if possible_slots.keys.include?(ex_slot[0])
+                - possible_slots[ex_slot[0]] = ex_slot
+        -p possible_slots.values

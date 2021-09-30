@@ -1,0 +1,45 @@
+The point of this project was partially to get my hands dirty with Ruby again after a break, 
+It was pretty fun: I hadn't used Bootstrap before, or Haml, and I'd been relying pretty heavily on 
+scaffolding to do the core structure, before this.
+
+So there's nothing too complex here, it's just a basic scheduling system between a student and a coach. 
+
+Some of the features include that coaches can declare their availability by making time slots,
+students can book time with those coaches, both parties can see their upcoming meetings, as well as cancel,
+and there's basic logic in there preventing conflicts - e.g. either parties double-booking themselves. 
+
+Things I revised/learned from doing this include:
+
+- using Devise, a gem which handles login flow, including password encryption 
+- database linking - foreign keys as well as declaring ownership between models, 
+- using hooks in the Models to handle creation: 
+-   for example forcing timeslots to have a fixed length of 30 minutes, 
+-   preventing double-booking
+- bootstrap, whereas previously I was using CSS for everything
+- using HAML as opposed to erb
+- integrating and messing with the simple calendar gem. 
+
+All in all, had a pretty good time. 
+
+There's a second reason for this, which was to have a crack at a UI for slot creation which is a 
+little different to the old one. 
+If we look at the old one, not to roast it, but there are a few things which jump out at me. 
+
+Firstly, I think it's kind of a lot to take in at first flance. It's a pretty densely populated page, 
+and you can immediately see all the time slots. There are a million little things to click, and maybe 
+that's not super user-friendly. Certainly not if your vision is poor. 
+Secondly, I think the weekly layout makes sense, but the drawback is that if you want to declare 
+your availability far into the future, you have to do a bit of extra navigating. 
+
+Maybe what we could do instead, is start by rendering a calendar. 
+Upon clicking a day, all the possible slots appear, and you can set your availability. 
+If a slot is already booked, it will tell you, and you can cancel it. 
+Obviously I'd want to add some extra options in these panels - like selecting length, coachee, etc.
+I think some of the benefits are, though, that it's not as fiddly, and that it allows quicker visual 
+access to a larger range of days, which might encourage users to plan fo the future a bit more. 
+
+I also think that, since Natalie mentioned to me that some of our coaches aren't super 
+technical people, and some of them are older, it's important to have friendlier UI. 
+
+-6, -1, +7, +4
+14 17 28 43

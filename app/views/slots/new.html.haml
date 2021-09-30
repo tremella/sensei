@@ -1,10 +1,8 @@
 %div
   %h2 Create new slots
-  = render 'form', slot: @slot
   %br
-  %p old interface above ^^^
-  %br
-  %p new interface below vvv
+  %h4 Select a day to edit your availability.
+
 
 = week_calendar(number_of_weeks: 5) do |date| 
   = date 

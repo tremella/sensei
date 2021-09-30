@@ -38,17 +38,20 @@ class Slot < ApplicationRecord
     end
 
     # when a day is selected on the New Slot calendar, 
-    # this produces an arr of all other slots on that day.
+    # this produces an arr of all other slots on that day (for that coach).
     def find_others_on_this_day(slot, params)
         if slot.coach_id == params[:coach_id].to_i
             if slot.start.to_s.slice(0,10) == params[:date].slice(0,10)
                 x = slot.start.to_s.slice(11,20)
-                return x.slice(0,5)
+                y = slot.is_booked
+                z = slot.student_id
+                return [x.slice(0,5), y, z]
             end
             return nil
         end
         return nil
     end
+
 
     # student specific (for now). REFAC: DRY
     def student_double_booked
