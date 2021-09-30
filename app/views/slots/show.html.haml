@@ -1,21 +1,22 @@
-%h1 Slot
-%p
-  - if @slot.is_booked
-    booked by: #{@student.nickname}
+%div.main
+  %h1 Slot
+  %p
+    - if @slot.is_booked
+      booked by: #{@student.nickname}
+      %br/
+    coach: #{@coach.nickname}
     %br/
-  coach: #{@coach.nickname}
-  %br/
-  starts: #{@slot.start.strftime("%H:%M%P %a %b %d")}
-  %br/
-  ends: #{@slot.end.strftime("%H:%M%P %a %b %d")}
-  - if !(current_user.is_coach)
-    - if @slot.is_booked
-      = link_to 'cancel this booking', edit_slot_path(task:'cancel')
+    starts: #{@slot.start.strftime("%H:%M%P %a %b %d")}
+    %br/
+    ends: #{@slot.end.strftime("%H:%M%P %a %b %d")}
+    - if !(current_user.is_coach)
+      - if @slot.is_booked
+        = link_to 'cancel this booking', edit_slot_path(task:'cancel')
+      - else
+        = link_to 'book this slot', edit_slot_path(task:'book')
     - else
-      = link_to 'book this slot', edit_slot_path(task:'book')
-  - else
-    - if @slot.is_booked
-      = link_to 'cancel this booking', edit_slot_path(task:'cancel')
+      - if @slot.is_booked
+        = link_to 'cancel this booking', edit_slot_path(task:'cancel')
 
-    - if @slot.coach_id == current_user.id  
-      = link_to 'delete this slot', slot_path, method: :delete
+      - if @slot.coach_id == current_user.id  
+        = link_to 'delete this slot', slot_path, method: :delete

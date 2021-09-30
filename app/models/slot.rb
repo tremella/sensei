@@ -42,10 +42,11 @@ class Slot < ApplicationRecord
     def find_others_on_this_day(slot, params)
         if slot.coach_id == params[:coach_id].to_i
             if slot.start.to_s.slice(0,10) == params[:date].slice(0,10)
-                x = slot.start.to_s.slice(11,20)
-                y = slot.is_booked
-                z = slot.student_id
-                return [x.slice(0,5), y, z]
+                w = slot.start.to_s.slice(11,20)
+                x = slot.is_booked
+                y = slot.student_id
+                z = slot.id
+                return [w.slice(0,5), x, y, z]
             end
             return nil
         end

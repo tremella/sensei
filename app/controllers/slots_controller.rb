@@ -22,7 +22,7 @@ class SlotsController < ApplicationController
   end
   
   def timeslices
-    puts params, 'params!!!!'
+    puts params, 'PARAMS!!!!'
     @slots = Slot.all.order("start ASC")
     @existing_slots_for_this_day = []
     @slots.each do |slot|
