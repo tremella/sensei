@@ -42,7 +42,7 @@ class SlotsController < ApplicationController
     else #should not occur
       puts '...???'
     end
-    redirect_to @slot
+    redirect_to new_slot_path
   end
 
   def update
