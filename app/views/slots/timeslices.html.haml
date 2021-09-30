@@ -8,8 +8,42 @@
         -# -p @slots
         -# -p possible_slots['09:00']
         -# -p @existing_slots_for_this_day
-        -# -p current_user.id
         - @existing_slots_for_this_day.each do |ex_slot|
             - if possible_slots.keys.include?(ex_slot[0])
                 - possible_slots[ex_slot[0]] = ex_slot
-        -p possible_slots.values
+        - possible_slots.each do |p_slot|
+            .col-12
+                - if p_slot[1] != nil
+                    - if p_slot[1][1] == true
+                        -p 'booked by someone'
+                        .row
+                            .col-12
+                                .card.bg-primary.text-dark
+                                    .card-body 
+                                        .row 
+                                            .col-7
+                                                %label{for: p_slot} #{p_slot[1][0]} BOOKED slot
+                                            .col-3
+                                                = link_to 'cancel?', '#', class: 'btn btn-primary custom-border'
+                    - else 
+                        -p 'not yet booked'
+                        .row
+                            .col-12
+                                .card.bg-primary.text-dark
+                                    .card-body 
+                                        .row 
+                                            .col-7
+                                                %label{for: p_slot} #{p_slot[1][0]} bookable slot
+                                            .col-3
+                                                = link_to 'delete?', '#', class: 'btn btn-primary custom-border'
+                - else
+                    -p 'empty'
+                    .row
+                        .col-12
+                            .card.bg-light.text-dark
+                                .card-body 
+                                    .row 
+                                        .col-7 
+                                            %label{for: p_slot} #{p_slot[0]} non-bookable  
+                                        .col-3
+                                            = link_to 'create?', '#', class: 'btn btn-secondary'
