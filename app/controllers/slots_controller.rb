@@ -11,6 +11,7 @@ class SlotsController < ApplicationController
   
   #implements creation
   def create
+    p params
     @slot = Slot.new(slot_params)
     if @slot.save
       redirect_to @slot
@@ -21,7 +22,6 @@ class SlotsController < ApplicationController
   end
   
   def timeslices
-    puts params, 'PARAMS!!!!'
     @slots = Slot.all.order("start ASC")
     @existing_slots_for_this_day = []
     @slots.each do |slot|

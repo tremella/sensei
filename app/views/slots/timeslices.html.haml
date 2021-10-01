@@ -4,6 +4,7 @@
         $last_date = window.document.location.search.slice(-10)
         console.log($last_date)
 
+
     -  possible_slots = {'09:00'=> nil,'09:30'=> nil,'10:00'=> nil,'10:30'=> nil,'11:00'=> nil,'11:30'=> nil,'12:00'=> nil,'12:30'=> nil,'13:00'=> nil,'13:30'=> nil,'14:00'=> nil,'14:30'=> nil,'15:00'=> nil,'15:30'=> nil,'16:00'=> nil,'16:30'=> nil,
 '17:00'=> nil,'17:30'=> nil}
     .row
@@ -42,4 +43,4 @@
                                         .col-7 
                                             %label{for: p_slot} #{p_slot[0]} empty  
                                         .col-3
-                                            = link_to 'create?', slots_path, method: :create, class: 'btn btn-secondary'
+                                            = link_to 'create?', slots_path(slot: {coach_id:'3', start: '2021-09-20 09:30:00'} ), method: :create, class: 'btn btn-secondary'
