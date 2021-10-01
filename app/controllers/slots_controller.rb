@@ -4,7 +4,6 @@ class SlotsController < ApplicationController
     @slot = Slot.all.order("start ASC")
   end
 
-
   #only coaches can make a new slot.
   def new
     @slot = Slot.new(coach_id: current_user.id)
@@ -58,7 +57,7 @@ class SlotsController < ApplicationController
   def destroy
     @slot = Slot.find(params[:id])
     @slot.destroy
-    redirect_to "/"
+    redirect_to new_slot_path
   end
 
   def show
