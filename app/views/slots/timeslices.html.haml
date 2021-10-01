@@ -28,7 +28,7 @@
                                             .col-7
                                                 %label{for: p_slot} #{p_slot[1][0]} bookable
                                             .col-3
-                                                = link_to 'delete?', '#', class: 'btn btn-secondary custom-border'
+                                                = link_to 'delete?', slot_path(id:p_slot[1][3]), method: :delete
                 - else
                     .row
                         .col-12
