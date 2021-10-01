@@ -3,7 +3,7 @@ class Slot < ApplicationRecord
 
     # handling 'coach makes slot'
     before_create do
-        self.end = self.start + (60 * 29)
+        self.end = self.start + (60 * 30)
         if slot_overlaps
             prevent_creation
         end
