@@ -3,7 +3,7 @@ class Slot < ApplicationRecord
 
     # handling 'coach makes slot'
     before_create do
-        self.end = self.start + (60 * 30)
+        self.end = self.start + (60 * 29)
         if slot_overlaps
             prevent_creation
         end
@@ -21,9 +21,9 @@ class Slot < ApplicationRecord
         is_overlap = false
         Slot.all.each do |slot|
             if slot.coach_id == self.coach_id # REFAC: DRY
-                if self.start >= slot.start && self.start <= slot.start + (60*30)
+                if self.start >= slot.start && self.start <= slot.start + (60*29)
                     is_overlap = true
-                elsif self.end >= slot.start && self.end <= slot.start + (60*30)
+                elsif self.end >= slot.start && self.end <= slot.start + (60*29)
                     is_overlap = true
                 else
                     next

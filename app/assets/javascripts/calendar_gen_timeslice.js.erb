@@ -14,7 +14,6 @@ $(document).ready(function() {
 
         var this_coach_id = $(this).attr('data-coach-id');
         var this_date = $(this).text().slice(0,10)
-        console.log('clicky')
         $.ajax({
         method: "POST",
         url: "timeslices",
@@ -25,8 +24,6 @@ $(document).ready(function() {
         });
 
      });
-
-
 
 });
 
